@@ -1,14 +1,16 @@
 # snmpbench
 
+Work In Progress
+
 ## Libs to benchmark
 
 Python
-- pysnmp
-- netsnmp bindings
+- [pysnmp](https://github.com/etingof/pysnmp)
+- [python3-netsnmp (bindings)](https://github.com/bluecmd/python3-netsnmp)
 - custom lib without MIB support?
 
 Go
-- gosnmp
+- [gosnmp](https://github.com/soniah/gosnmp)
 - netsnmp using CGO
 - custom lib without MIB support?
 
