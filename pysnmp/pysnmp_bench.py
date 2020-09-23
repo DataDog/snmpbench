@@ -36,4 +36,4 @@ else:
             print(' = '.join([x.prettyPrint() for x in varBind]))
 
 
-print("duration:", end - start)
+print("duration: {:.2f} ms".format((end - start) * 1000))
