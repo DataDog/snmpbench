@@ -30,7 +30,7 @@ func main() {
 
 	oids := []string{}
 	for i := 1; i <= 100; i++ {
-		oids = append(oids, "1.3.6.1.2.1.1.4." + strconv.Itoa(i))
+		oids = append(oids, "1.3.6.1.2.1.25.6.3.1.1." + strconv.Itoa(i))
 	}
 	result, err2 := g.Default.Get(oids) // Get() accepts up to g.MAX_OIDS
 
