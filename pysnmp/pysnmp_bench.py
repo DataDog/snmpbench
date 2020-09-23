@@ -36,4 +36,4 @@ else:
             print(' = '.join([x.prettyPrint() for x in varBind]))
 
 
-print("duration: {:.2f} ms".format((end - start) * 1000))
+print("pysnmp duration: {:.2f} ms".format((end - start) * 1000))

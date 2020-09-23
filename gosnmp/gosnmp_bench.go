@@ -58,5 +58,5 @@ func main() {
 		}
 	}
 
-	fmt.Printf("Duration %.2f ms\n", float32(elapsed) / 1000000)
+	fmt.Printf("gosnmp duration: %.2f ms\n", float32(elapsed) / 1000000)
 }
