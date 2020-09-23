@@ -7,22 +7,24 @@ count = int(sys.argv[3])
 
 import time
 
-start = time.time()
 
-oid = ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0))
+oids = []
+for i in range(1, count+1):
+    oids.append(ObjectType(ObjectIdentity('1.3.6.1.2.1.25.6.3.1.1.{}'.format(i))))
+
+start = time.time()
 
 iterator = getCmd(SnmpEngine(),
                   CommunityData('public'),
                   UdpTransportTarget((host, port)),
                   ContextData(),
-                  *([oid] * count)
+                  *oids
             )
 
 
 errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
 end = time.time()
-print(end - start)
 
 if errorIndication:  # SNMP engine errors
     print(errorIndication)
@@ -33,3 +35,5 @@ else:
         for varBind in varBinds:  # SNMP response contents
             print(' = '.join([x.prettyPrint() for x in varBind]))
 
+
+print("duration:", end - start)

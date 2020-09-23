@@ -1,1 +1,1 @@
-python pysnmp/pysnmp_bench.py localhost 1161 50
+python pysnmp/pysnmp_bench.py localhost 1161 100
