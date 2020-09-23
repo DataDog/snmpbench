@@ -21,6 +21,9 @@ iterator = getCmd(SnmpEngine(),
 
 errorIndication, errorStatus, errorIndex, varBinds = next(iterator)
 
+end = time.time()
+print(end - start)
+
 if errorIndication:  # SNMP engine errors
     print(errorIndication)
 else:
@@ -30,5 +33,3 @@ else:
         for varBind in varBinds:  # SNMP response contents
             print(' = '.join([x.prettyPrint() for x in varBind]))
 
-end = time.time()
-print(end - start)
