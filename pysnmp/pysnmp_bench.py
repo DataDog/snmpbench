@@ -3,6 +3,7 @@ from pysnmp.hlapi import *
 
 host = sys.argv[1]
 port = int(sys.argv[2])
+count = int(sys.argv[3])
 
 import time
 
@@ -14,7 +15,7 @@ iterator = getCmd(SnmpEngine(),
                   CommunityData('public'),
                   UdpTransportTarget((host, port)),
                   ContextData(),
-                  *([oid] * 10)
+                  *([oid] * count)
             )
 
 
