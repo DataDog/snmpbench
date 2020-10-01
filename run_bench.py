@@ -50,8 +50,8 @@ for lib, config in configs.items():
 
     results.append({
         'name': lib,
-        'duration': duration,
-        'max_rss': max_rss,
+        'duration': float(duration),
+        'max_rss': int(max_rss),
     })
 
 for res in results:
@@ -74,6 +74,6 @@ else:
     print("rounds: {}".format(args.rounds))
     print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
     for res in results:
-        print("{:10s}: {:>15s} {:>20f} {:>20s} {:>20d}".format(
+        print("{:10s}: {:>15.2f} {:>20.2f} {:>20d} {:>20d}".format(
             res['name'], res['duration'], res['duration_per_oid'], res['max_rss'], res['rss_per_sess']
         ))
