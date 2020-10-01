@@ -1,9 +1,10 @@
+import sys
 import subprocess
 import tempfile
 
-hostname = 'localhost'
-port = 1161
-oid_batch_size = 100
+hostname = sys.argv[1]
+port = int(sys.argv[2])
+oid_batch_size = int(sys.argv[3])
 
 LIBS = {
     'gosnmp': {
