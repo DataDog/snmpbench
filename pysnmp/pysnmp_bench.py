@@ -41,10 +41,12 @@ for _ in range(sessions_num):
 def cbFun(snmpEngine, sendRequestHandle, errorIndication,
           errorStatus, errorIndex, varBinds, cbCtx):
     if errorIndication:
-        print(errorIndication)
+        print("ERROR errorIndication:", errorIndication)
+        exit(1)
     elif errorStatus:
-        print('%s at %s' % (errorStatus.prettyPrint(),
+        print('ERROR %s at %s' % (errorStatus.prettyPrint(),
                             errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
+        exit(1)
     else:
         if print_results == 'true':
             for oid, val in varBinds:
