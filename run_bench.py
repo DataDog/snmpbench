@@ -51,6 +51,6 @@ for lib, config in configs.items():
 
 print("SNMP Benchmark")
 print("oid_batch_size: {}".format(args.oid_batch_size))
-print("{:10s}  {:>10s} {:>10s}".format("", "duration", "max_rss"))
+print("{:10s}  {:>15s} {:>20s}".format("", "duration(ms)", "max_rss(kbytes)"))
 for res in results:
-    print("{:10s}: {:>10s} {:>10s}".format(res['name'], res['duration'], res['max_rss']))
+    print("{:10s}: {:>15s} {:>20s}".format(res['name'], res['duration'], res['max_rss']))
