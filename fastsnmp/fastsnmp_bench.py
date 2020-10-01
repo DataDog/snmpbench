@@ -24,6 +24,6 @@ snmp_data = list(snmp_data)
 end = time.time()
 
 for d in snmp_data:
-    print ("host=%s oid=%s value=%s" % (d[0], d[1], d[3]))
+    print("host=%s oid=%s value=%s" % (d[0], d[1], d[3]))
 
 print("fastsnmp duration: {:.2f} ms".format((end - start) * 1000))
