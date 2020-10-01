@@ -25,4 +25,4 @@ jobs:
       run: docker-compose -f environment/compose/docker-compose.yaml up -d
     - name: Run bench
       run: |
-        python pysnmp/pysnmp_bench.py localhost 1161 100 3 2 true
+        python run_bench.py localhost 1161 --oid-batch-size 50 --sessions 1 --rounds 10
