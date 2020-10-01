@@ -27,8 +27,14 @@ Python
 ## [Draft] bench
 
 ```
-          :   duration    max_rss
-gosnmp    :      22.10       3564
-netsnmp   :      26.09      12148
-pysnmp    :     182.08      31096
+$ python run_bench.py localhost 1161 --oid-batch-size 50 --sessions 100 --rounds 10
+SNMP Benchmark
+oid_batch_size: 50
+sessions: 100
+rounds: 10
+print_results: false
+               duration(ms)     duration_per_oid      max_rss(kbytes)         rss_per_sess
+gosnmp    :        11073.91             0.221478                15548                  155
+netsnmp   :        11171.24             0.223425                12080                  120
+pysnmp    :        17923.49             0.358470               126680                 1266
 ```
