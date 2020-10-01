@@ -3,11 +3,16 @@ import sys
 from utils import subprocess_output
 from config import get_configs
 
-hostname = sys.argv[1]
-port = int(sys.argv[2])
-oid_batch_size = int(sys.argv[3])
+import argparse
 
-configs = get_configs(hostname, port, oid_batch_size)
+parser = argparse.ArgumentParser(description='snmpbench')
+parser.add_argument('hostname')
+parser.add_argument('port', type=int)
+parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default=100)
+
+args = parser.parse_args()
+
+configs = get_configs(args.hostname, args.port, args.oid_batch_size)
 results = []
 for lib, config in configs.items():
     setup_cmd = config.get('setup')
@@ -44,7 +49,7 @@ for lib, config in configs.items():
     })
 
 print("SNMP Benchmark")
-print("oid_batch_size: {}".format(oid_batch_size))
+print("oid_batch_size: {}".format(args.oid_batch_size))
 print("{:10s}  {:>10s} {:>10s}".format("", "duration", "max_rss"))
 for res in results:
     print("{:10s}: {:>10s} {:>10s}".format(res['name'], res['duration'], res['max_rss']))
