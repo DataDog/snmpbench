@@ -51,6 +51,11 @@ for lib, config in configs.items():
 
 print("SNMP Benchmark")
 print("oid_batch_size: {}".format(args.oid_batch_size))
-print("{:10s}  {:>15s} {:>20s}".format("", "duration(ms)", "max_rss(kbytes)"))
+print("sessions: {}".format(args.sessions))
+print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
 for res in results:
-    print("{:10s}: {:>15s} {:>20s}".format(res['name'], res['duration'], res['max_rss']))
+    rss_per_sess = int(int(res['max_rss']) / args.sessions)
+    duration_per_oid = float(res['duration']) / (args.sessions * args.oid_batch_size)
+    print("{:10s}: {:>15s} {:>20f} {:>20s} {:>20d}".format(
+        res['name'], res['duration'], duration_per_oid, res['max_rss'], rss_per_sess
+    ))
