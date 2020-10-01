@@ -1,3 +1,4 @@
+import json
 import sys
 
 from utils import subprocess_output
@@ -11,6 +12,8 @@ parser.add_argument('port', type=int)
 parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default=10)
 parser.add_argument('--sessions', dest='sessions', type=int, default=1)
 parser.add_argument('--rounds', dest='rounds', type=int, default=1)
+parser.add_argument('--json', dest='json', action='store_true')
+parser.set_defaults(json=False)
 
 args = parser.parse_args()
 
@@ -51,14 +54,26 @@ for lib, config in configs.items():
         'max_rss': max_rss,
     })
 
-print("SNMP Benchmark")
-print("oid_batch_size: {}".format(args.oid_batch_size))
-print("sessions: {}".format(args.sessions))
-print("rounds: {}".format(args.rounds))
-print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
 for res in results:
-    rss_per_sess = int(int(res['max_rss']) / args.sessions)
-    duration_per_oid = float(res['duration']) / (args.sessions * args.oid_batch_size * args.rounds)
-    print("{:10s}: {:>15s} {:>20f} {:>20s} {:>20d}".format(
-        res['name'], res['duration'], duration_per_oid, res['max_rss'], rss_per_sess
-    ))
+    res['rss_per_sess'] = int(int(res['max_rss']) / args.sessions)
+    res['duration_per_oid'] = float(res['duration']) / (args.sessions * args.oid_batch_size * args.rounds)
+
+if args.json:
+    print(json.dumps({
+        'config': {
+            "oid_batch_size": args.oid_batch_size,
+            "sessions": args.sessions,
+            "rounds": args.rounds,
+        },
+        'results': results
+    }))
+else:
+    print("SNMP Benchmark")
+    print("oid_batch_size: {}".format(args.oid_batch_size))
+    print("sessions: {}".format(args.sessions))
+    print("rounds: {}".format(args.rounds))
+    print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
+    for res in results:
+        print("{:10s}: {:>15s} {:>20f} {:>20s} {:>20d}".format(
+            res['name'], res['duration'], res['duration_per_oid'], res['max_rss'], res['rss_per_sess']
+        ))
