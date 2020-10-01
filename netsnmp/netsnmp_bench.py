@@ -16,8 +16,6 @@ for i in range(1, count+1):
 sess = netsnmp.Session(Version=2,
                        DestHost="{}:{}".format(host, port),
                        Community='public')
-sess.UseEnums = 1
-sess.UseLongNames = 1
 
 vars = netsnmp.VarList(*oids)
 
