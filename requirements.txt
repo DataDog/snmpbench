@@ -1,1 +1,2 @@
 pysnmp==4.4.12
+python3-netsnmp==1.1a1
