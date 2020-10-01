@@ -45,7 +45,7 @@ def subprocess_output(command, raise_on_empty_output=False, env=None):
 
     return output, err, proc.returncode
 
-
+results = []
 for lib, config in LIBS.items():
     setup_cmd = config.get('setup')
     exec_cmd = config['exec']
@@ -54,7 +54,7 @@ for lib, config in LIBS.items():
         if code != 0:
             raise Exception("stderr: {}".format(stderr.strip()))
 
-    exec_res, stderr, code = subprocess_output(exec_cmd)
+    exec_res, exec_stderr, code = subprocess_output(exec_cmd)
     if code != 0:
         raise Exception("stderr: {}".format(stderr.strip()))
 
@@ -66,4 +66,20 @@ for lib, config in LIBS.items():
     else:
         raise Exception('No duration found')
 
-    print("Duration for {:10s}: {:>8s}".format(lib, duration))
+    exec_stderr = exec_stderr.decode('utf-8')
+    for line in exec_stderr.split('\n'):
+        if 'Maximum resident set size' in line:
+            max_rss = line.split(':')[1].strip()
+            break
+    else:
+        raise Exception('No duration found')
+
+    results.append({
+        'name': lib,
+        'duration': duration,
+        'max_rss': max_rss,
+    })
+
+print("{:10s}: {:>10s} {:>10s}".format("", "duration", "max_rss"))
+for res in results:
+    print("{:10s}: {:>10s} {:>10s}".format(res['name'], res['duration'], res['max_rss']))
