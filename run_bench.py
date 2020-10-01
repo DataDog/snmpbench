@@ -59,7 +59,7 @@ print("print_results: {}".format(args.print_results))
 print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
 for res in results:
     rss_per_sess = int(int(res['max_rss']) / args.sessions)
-    duration_per_oid = float(res['duration']) / (args.sessions * args.oid_batch_size)
+    duration_per_oid = float(res['duration']) / (args.sessions * args.oid_batch_size * args.rounds)
     print("{:10s}: {:>15s} {:>20f} {:>20s} {:>20d}".format(
         res['name'], res['duration'], duration_per_oid, res['max_rss'], rss_per_sess
     ))
