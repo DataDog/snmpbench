@@ -4,6 +4,7 @@ from pysnmp.hlapi import *
 host = sys.argv[1]
 port = int(sys.argv[2])
 oid_batch_size = int(sys.argv[3])
+sessions_num = int(sys.argv[4])
 
 import time
 

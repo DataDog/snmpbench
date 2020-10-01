@@ -15,8 +15,8 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 4 {
-		log.Fatalf("4 args expected, %v received", len(os.Args))
+	if len(os.Args) != 5 {
+		log.Fatalf("5 args expected, %v received", len(os.Args))
 	}
 	host := os.Args[1] // first command line parameter, ...
 	port, err := strconv.Atoi(os.Args[2]) // first command line parameter, ...
@@ -26,6 +26,11 @@ func main() {
 	oid_batch_size, err := strconv.Atoi(os.Args[3]) // first command line parameter, ...
 	if err != nil {
 		log.Fatalf("port arg err: %v", err)
+	}
+	_, err = strconv.Atoi(os.Args[4]) // first command line parameter, ...
+// 	sessions_num
+	if err != nil {
+		log.Fatalf("sessions arg err: %v", err)
 	}
 
 	// Default is a pointer to a GoSNMP struct that contains sensible defaults

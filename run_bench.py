@@ -8,17 +8,18 @@ import argparse
 parser = argparse.ArgumentParser(description='snmpbench')
 parser.add_argument('hostname')
 parser.add_argument('port', type=int)
-parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default=100)
+parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default=10)
+parser.add_argument('--sessions', dest='sessions', type=int, default=1)
 
 args = parser.parse_args()
 
-configs = get_configs(args.hostname, args.port, args.oid_batch_size)
+configs = get_configs(args.hostname, args.port, args.oid_batch_size, args.sessions)
 results = []
 for lib, config in configs.items():
     setup_cmd = config.get('setup')
     exec_cmd = config['exec']
     if setup_cmd:
-        setup_res, stderr, code = subprocess_output(exec_cmd)
+        setup_res, stderr, code = subprocess_output(setup_cmd)
         if code != 0:
             raise Exception("stderr: {}".format(stderr.strip()))
 
