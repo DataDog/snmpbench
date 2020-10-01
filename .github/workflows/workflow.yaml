@@ -16,11 +16,13 @@ jobs:
     - uses: actions/setup-go@v2
       with:
         go-version: '^1.14.3'
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
+    - name: Install Go dependencies
+      run: |
+        go get github.com/soniah/gosnmp
     - name: Run snmpsim
       run: docker-compose -f environment/compose/docker-compose.yaml up -d
     - name: Run bench
