@@ -10,6 +10,8 @@ host = sys.argv[1]
 port = int(sys.argv[2])
 oid_batch_size = int(sys.argv[3])
 sessions_num = int(sys.argv[4])
+rounds = int(sys.argv[5])
+print_results = sys.argv[6]
 
 oids = []
 for i in range(1, oid_batch_size + 1):
@@ -44,21 +46,23 @@ def cbFun(snmpEngine, sendRequestHandle, errorIndication,
         print('%s at %s' % (errorStatus.prettyPrint(),
                             errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
     else:
-        for oid, val in varBinds:
-            print('%s : print=`%s` type=`%s`' % (oid.prettyPrint(), val.prettyPrint(), type(val)))
+        if print_results == 'true':
+            for oid, val in varBinds:
+                print('%s : print=`%s` type=`%s`' % (oid.prettyPrint(), val.prettyPrint(), type(val)))
 
 
 start = time.time()
 
 for snmpEngine, target in sessions:
-    cmdgen.GetCommandGenerator().sendVarBinds(
-        snmpEngine,
-        target,
-        None, '',  # contextEngineId, contextName
-        oids,
-        cbFun
-    )
-    snmpEngine.transportDispatcher.runDispatcher()
+    for _ in range(rounds):
+        cmdgen.GetCommandGenerator().sendVarBinds(
+            snmpEngine,
+            target,
+            None, '',  # contextEngineId, contextName
+            oids,
+            cbFun
+        )
+        snmpEngine.transportDispatcher.runDispatcher()
 
 end = time.time()
 

@@ -15,8 +15,8 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 5 {
-		log.Fatalf("5 args expected, %v received", len(os.Args))
+	if len(os.Args) != 7 {
+		log.Fatalf("7 args expected, %v received", len(os.Args))
 	}
 	host := os.Args[1] // first command line parameter, ...
 	port, err := strconv.Atoi(os.Args[2]) // first command line parameter, ...
@@ -30,6 +30,14 @@ func main() {
 	sessions_num, err := strconv.Atoi(os.Args[4]) // first command line parameter, ...
 	if err != nil {
 		log.Fatalf("sessions arg err: %v", err)
+	}
+	rounds, err := strconv.Atoi(os.Args[5]) // first command line parameter, ...
+	if err != nil {
+		log.Fatalf("rounds arg err: %v", err)
+	}
+	print_results := os.Args[6] // first command line parameter, ...
+	if err != nil {
+		log.Fatalf("print_results arg err: %v", err)
 	}
 
 	var sessions []g.GoSNMP
@@ -63,11 +71,15 @@ func main() {
 
 	start := time.Now()
 	for i := 0; i < len(sessions); i++ {
-		result, err2 := sessions[i].Get(oids)
-		if err2 != nil {
-			log.Fatalf("Get() err: %v", err2)
+		for j := 0; j < rounds; j++ {
+			result, err2 := sessions[i].Get(oids)
+			if err2 != nil {
+				log.Fatalf("Get() err: %v", err2)
+			}
+			if print_results == "true" {
+		    	results = append(results, result)
+			}
 		}
-		results = append(results, result)
 	}
 	elapsed := time.Since(start)
 

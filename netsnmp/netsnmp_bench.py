@@ -6,6 +6,8 @@ host = sys.argv[1]
 port = int(sys.argv[2])  # default port is 1161 and cannot be be changed
 oid_batch_size = int(sys.argv[3])
 sessions_num = int(sys.argv[4])
+rounds = int(sys.argv[5])
+print_results = sys.argv[6]
 
 import time
 
@@ -26,7 +28,10 @@ session_vals = []
 
 start = time.time()
 for sess in sessions:
-    session_vals.append(sess.get(vars))
+    for _ in range(rounds):
+        res = sess.get(vars)
+        if print_results == 'true':
+            session_vals.append(res)
 end = time.time()
 
 for i, vals in enumerate(session_vals):

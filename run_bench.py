@@ -10,10 +10,12 @@ parser.add_argument('hostname')
 parser.add_argument('port', type=int)
 parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default=10)
 parser.add_argument('--sessions', dest='sessions', type=int, default=1)
+parser.add_argument('--rounds', dest='rounds', type=int, default=1)
+parser.add_argument('--print-results', dest='print_results', type=str, default='false')
 
 args = parser.parse_args()
 
-configs = get_configs(args.hostname, args.port, args.oid_batch_size, args.sessions)
+configs = get_configs(args.hostname, args.port, args.oid_batch_size, args.sessions, args.rounds, args.print_results)
 results = []
 for lib, config in configs.items():
     setup_cmd = config.get('setup')
@@ -25,7 +27,7 @@ for lib, config in configs.items():
 
     exec_res, exec_stderr, code = subprocess_output(exec_cmd)
     if code != 0:
-        raise Exception("stderr: {}".format(stderr.strip()))
+        raise Exception("stderr: {}".format(exec_stderr.decode('utf-8').strip()))
 
     exec_res = exec_res.decode('utf-8')
     for line in exec_res.split('\n'):
@@ -52,6 +54,8 @@ for lib, config in configs.items():
 print("SNMP Benchmark")
 print("oid_batch_size: {}".format(args.oid_batch_size))
 print("sessions: {}".format(args.sessions))
+print("rounds: {}".format(args.rounds))
+print("print_results: {}".format(args.print_results))
 print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
 for res in results:
     rss_per_sess = int(int(res['max_rss']) / args.sessions)
