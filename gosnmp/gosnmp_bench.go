@@ -23,7 +23,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("port arg err: %v", err)
 	}
-	count, err := strconv.Atoi(os.Args[3]) // first command line parameter, ...
+	oid_batch_size, err := strconv.Atoi(os.Args[3]) // first command line parameter, ...
 	if err != nil {
 		log.Fatalf("port arg err: %v", err)
 	}
@@ -42,7 +42,7 @@ func main() {
 	start := time.Now()
 
 	oids := []string{}
-	for i := 1; i <= count; i++ {
+	for i := 1; i <= oid_batch_size; i++ {
 		oids = append(oids, "1.3.6.1.2.1.25.6.3.1.1." + strconv.Itoa(i))
 	}
 	result, err2 := g.Default.Get(oids) // Get() accepts up to g.MAX_OIDS

@@ -3,18 +3,18 @@ import tempfile
 
 hostname = 'localhost'
 port = 1161
-number = 100
+oid_batch_size = 100
 
 LIBS = {
     'gosnmp': {
         'setup': ['go', 'build', '-o', 'gosnmp/gosnmp_bench', 'gosnmp/gosnmp_bench.go'],
-        'exec': ['/usr/bin/time', '-v', './gosnmp/gosnmp_bench', hostname, str(port), str(number)]
+        'exec': ['/usr/bin/time', '-v', './gosnmp/gosnmp_bench', hostname, str(port), str(oid_batch_size)]
     },
     'netsnmp': {
-        'exec': ['/usr/bin/time', '-v', 'python', 'netsnmp/netsnmp_bench.py', hostname, str(port), str(number)]
+        'exec': ['/usr/bin/time', '-v', 'python', 'netsnmp/netsnmp_bench.py', hostname, str(port), str(oid_batch_size)]
     },
     'pysnmp': {
-        'exec': ['/usr/bin/time', '-v', 'python', 'pysnmp/pysnmp_bench.py', hostname, str(port), str(number)]
+        'exec': ['/usr/bin/time', '-v', 'python', 'pysnmp/pysnmp_bench.py', hostname, str(port), str(oid_batch_size)]
     }
 }
 
@@ -80,6 +80,8 @@ for lib, config in LIBS.items():
         'max_rss': max_rss,
     })
 
-print("{:10s}: {:>10s} {:>10s}".format("", "duration", "max_rss"))
+print("SNMP Benchmark")
+print("oid_batch_size: {}".format(oid_batch_size))
+print("{:10s}  {:>10s} {:>10s}".format("", "duration", "max_rss"))
 for res in results:
     print("{:10s}: {:>10s} {:>10s}".format(res['name'], res['duration'], res['max_rss']))

@@ -3,13 +3,13 @@ from pysnmp.hlapi import *
 
 host = sys.argv[1]
 port = int(sys.argv[2])
-count = int(sys.argv[3])
+oid_batch_size = int(sys.argv[3])
 
 import time
 
 
 oids = []
-for i in range(1, count+1):
+for i in range(1, oid_batch_size + 1):
     oids.append(ObjectType(ObjectIdentity('1.3.6.1.2.1.25.6.3.1.1.{}'.format(i))))
 
 start = time.time()
