@@ -39,7 +39,7 @@ jobs:
 
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs:
-    - build
+    - build_docs
 
     steps:
     - uses: actions/download-artifact@v2
