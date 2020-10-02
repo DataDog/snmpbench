@@ -2,6 +2,8 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
+![](../generated_images/max_rss_by_sessions.png)
+
 ## Commands
 
 * `mkdocs new [dir-name]` - Create a new project.
