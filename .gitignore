@@ -1,4 +1,6 @@
+*.pyc
 .idea
 __pycache__
 /gosnmp/gosnmp_bench
 /site
+generated_images

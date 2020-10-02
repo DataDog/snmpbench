@@ -17,7 +17,7 @@ def get_results(oid_batch_size=50, sessions=1, rounds=1):
 
 
 session_results = {}
-for i in range(20, 201, 20):
+for i in range(1, 10, 1):
     session_results[i] = get_results(sessions=i, rounds=1)
 
 import matplotlib.pyplot as plt
