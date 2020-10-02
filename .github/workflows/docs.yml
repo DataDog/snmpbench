@@ -23,11 +23,11 @@ jobs:
       with:
         python-version: '3.8'
 
-    - name: Upgrade Python packaging tools
-      run: pip install --disable-pip-version-check --upgrade pip setuptools wheel
+    - name: Install MKDocs
+      run: pip install mkdocs
 
     - name: Build documentation
-      run: ddev docs build -v
+      run: mkdocs build
 
     - uses: actions/upload-artifact@v2
       with:
