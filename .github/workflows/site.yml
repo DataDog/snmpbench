@@ -1,4 +1,4 @@
-name: Build Docs
+name: Build Site
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
     - master
 
 jobs:
-  build_docs:
+  build_site:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
 
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs:
-    - build_docs
+    - build_site
 
     steps:
     - uses: actions/download-artifact@v2
