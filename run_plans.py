@@ -37,4 +37,4 @@ for lib, values in per_lib.items():
 plt.xlabel('Sessions')
 plt.ylabel('Max RSS')
 plt.legend()
-plt.savefig('snmpbench-site/docs/generated_images/max_rss_by_sessions.png')
+plt.savefig('docs/generated_images/max_rss_by_sessions.png')
