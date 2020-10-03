@@ -1,3 +1,4 @@
+import json
 import subprocess
 import tempfile
 
@@ -27,3 +28,15 @@ def subprocess_output(command, raise_on_empty_output=False, env=None):
         raise SubprocessOutputEmptyError("get_subprocess_output expected output but had none.")
 
     return output, err, proc.returncode
+
+
+def get_results(oid_batch_size=50, sessions=1, rounds=1):
+    run_bench_cmd = ['python', 'run_bench.py', 'localhost', '1161',
+                     '--oid-batch-size', str(oid_batch_size),
+                     '--sessions', str(sessions),
+                     '--rounds', str(rounds),
+                     '--json']
+    raw_res, stderr, code = subprocess_output(run_bench_cmd)
+    if code != 0:
+        raise Exception("stderr: {}".format(stderr.decode('utf-8').strip()))
+    return json.loads(raw_res)

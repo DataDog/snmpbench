@@ -45,7 +45,7 @@ jobs:
 
     - name: Run bench
       run: |
-        python run_plans.py
+        python build_rss_per_sessions.py
 
     - name: Install MKDocs
       run: pip install mkdocs
