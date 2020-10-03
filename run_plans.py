@@ -17,8 +17,14 @@ def get_results(oid_batch_size=50, sessions=1, rounds=1):
 
 
 session_results = {}
-for i in range(5, 105, 5):
-    session_results[i] = get_results(sessions=i, rounds=1)
+for i in [1, 10, 20, 50, 100, 150, 200]:
+    kwargs = {
+        'oid_batch_size': 50,
+        'rounds': 1,
+        'sessions': i,
+    }
+    print("Run for params: {}".format(kwargs))
+    session_results[i] = get_results(**kwargs)
 
 import matplotlib.pyplot as plt
 
@@ -35,6 +41,6 @@ for lib, values in per_lib.items():
     plt.plot(sessions, values, label=lib)
 
 plt.xlabel('Sessions')
-plt.ylabel('Max RSS')
+plt.ylabel('Max RSS (KBytes)')
 plt.legend()
-plt.savefig('docs/generated_images/max_rss_by_sessions.png')
+plt.savefig('docs/generated_images/max_rss_by_sessions.png', bbox_inches='tight')
