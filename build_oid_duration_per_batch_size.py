@@ -1,3 +1,4 @@
+import json
 from collections import defaultdict
 from utils import get_results
 
@@ -28,7 +29,9 @@ def build_oid_duration_per_batch_size():
     plt.xlabel('Batch Size')
     plt.ylabel('Duration Per OID (ms)')
     plt.legend()
-    plt.savefig('docs/generated_images/oid_duration_per_batch_size.png', bbox_inches='tight')
+    plt.savefig('docs/generated_data/oid_duration_per_batch_size.png', bbox_inches='tight')
+    with open('docs/generated_data/oid_duration_per_batch_size.json', 'w') as f:
+        f.write(json.dumps(session_results, indent=4, sort_keys=True))
 
 
 build_oid_duration_per_batch_size()

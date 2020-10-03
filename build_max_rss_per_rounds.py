@@ -1,3 +1,4 @@
+import json
 from collections import defaultdict
 from utils import get_results
 
@@ -28,7 +29,9 @@ def build_max_rss_per_rounds():
     plt.xlabel('Rounds')
     plt.ylabel('Max RSS (KBytes)')
     plt.legend()
-    plt.savefig('docs/generated_images/max_rss_per_rounds.png', bbox_inches='tight')
+    plt.savefig('docs/generated_data/max_rss_per_rounds.png', bbox_inches='tight')
+    with open('docs/generated_data/max_rss_per_rounds.json', 'w') as f:
+        f.write(json.dumps(session_results, indent=4, sort_keys=True))
 
 
 build_max_rss_per_rounds()
