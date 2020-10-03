@@ -2,10 +2,10 @@ from collections import defaultdict
 from utils import get_results
 
 
-print("Run build_rss_per_sessions")
+print("Run build_max_rss_per_sessions")
 
 
-def build_rss_per_sessions():
+def build_max_rss_per_sessions():
     import matplotlib.pyplot as plt
 
     session_results = {}
@@ -28,7 +28,7 @@ def build_rss_per_sessions():
     plt.xlabel('Sessions')
     plt.ylabel('Max RSS (KBytes)')
     plt.legend()
-    plt.savefig('docs/generated_images/max_rss_by_sessions.png', bbox_inches='tight')
+    plt.savefig('docs/generated_images/max_rss_per_sessions.png', bbox_inches='tight')
 
 
-build_rss_per_sessions()
+build_max_rss_per_sessions()

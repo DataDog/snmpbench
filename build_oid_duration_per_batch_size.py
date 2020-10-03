@@ -2,7 +2,7 @@ from collections import defaultdict
 from utils import get_results
 
 
-print("Run build_oid_duration_per_batch_size")
+print("Run oid_duration_per_batch_size")
 
 
 def build_oid_duration_per_batch_size():
@@ -28,7 +28,7 @@ def build_oid_duration_per_batch_size():
     plt.xlabel('Batch Size')
     plt.ylabel('Duration Per OID (ms)')
     plt.legend()
-    plt.savefig('docs/generated_images/build_oid_duration_per_batch_size.png', bbox_inches='tight')
+    plt.savefig('docs/generated_images/oid_duration_per_batch_size.png', bbox_inches='tight')
 
 
 build_oid_duration_per_batch_size()
