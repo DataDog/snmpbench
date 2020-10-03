@@ -2,17 +2,17 @@ from collections import defaultdict
 from utils import get_results
 
 
-print("Run build_rss_per_rounds")
+print("Run build_oid_duration_per_batch_size")
 
 
-def build_rss_per_rounds():
+def build_oid_duration_per_batch_size():
     import matplotlib.pyplot as plt
 
     session_results = {}
-    for i in [1, 10, 20, 50, 100, 150, 200]:
+    for i in [5, 10, 15, 20, 50, 100]:
         kwargs = {
-            'oid_batch_size': 50,
-            'rounds': i,
+            'oid_batch_size': i,
+            'rounds': 10,
             'sessions': 10,
         }
         print("Run for params: {}".format(kwargs))
@@ -22,13 +22,13 @@ def build_rss_per_rounds():
     per_lib = defaultdict(list)
     for _, results in session_results.items():
         for result in results['results']:
-            per_lib[result['name']].append(result['max_rss'])
+            per_lib[result['name']].append(result['duration_per_oid'])
     for lib, values in per_lib.items():
         plt.plot(sessions, values, label=lib)
-    plt.xlabel('Rounds')
-    plt.ylabel('Max RSS (KBytes)')
+    plt.xlabel('Batch Size')
+    plt.ylabel('Duration Per OID (ms)')
     plt.legend()
-    plt.savefig('docs/generated_images/max_rss_by_rounds.png', bbox_inches='tight')
+    plt.savefig('docs/generated_images/build_oid_duration_per_batch_size.png', bbox_inches='tight')
 
 
-build_rss_per_rounds()
+build_oid_duration_per_batch_size()
