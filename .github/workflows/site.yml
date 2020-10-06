@@ -48,6 +48,7 @@ jobs:
         python build_max_rss_per_sessions.py
         python build_max_rss_per_rounds.py
         python build_oid_duration_per_batch_size.py
+        python build_user_time_per_rounds.py
 
     - name: Install MKDocs
       run: pip install mkdocs
