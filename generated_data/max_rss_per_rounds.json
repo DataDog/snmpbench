@@ -7,25 +7,25 @@
         },
         "results": [
             {
-                "duration": 139.31,
-                "duration_per_oid": 0.27862,
-                "max_rss": 10788,
+                "duration": 114.79,
+                "duration_per_oid": 0.22958,
+                "max_rss": 12772,
                 "name": "gosnmp",
-                "rss_per_sess": 1078
+                "rss_per_sess": 1277
             },
             {
-                "duration": 145.17,
-                "duration_per_oid": 0.29034,
-                "max_rss": 12288,
+                "duration": 114.2,
+                "duration_per_oid": 0.2284,
+                "max_rss": 12380,
                 "name": "netsnmp",
-                "rss_per_sess": 1228
+                "rss_per_sess": 1238
             },
             {
-                "duration": 280.32,
-                "duration_per_oid": 0.56064,
-                "max_rss": 35284,
+                "duration": 255.1,
+                "duration_per_oid": 0.5102,
+                "max_rss": 35320,
                 "name": "pysnmp",
-                "rss_per_sess": 3528
+                "rss_per_sess": 3532
             }
         ]
     },
@@ -37,25 +37,25 @@
         },
         "results": [
             {
-                "duration": 1402.82,
-                "duration_per_oid": 0.280564,
-                "max_rss": 17672,
+                "duration": 1200.41,
+                "duration_per_oid": 0.24008200000000002,
+                "max_rss": 13728,
                 "name": "gosnmp",
-                "rss_per_sess": 1767
+                "rss_per_sess": 1372
             },
             {
-                "duration": 1435.13,
-                "duration_per_oid": 0.287026,
-                "max_rss": 12436,
+                "duration": 1237.72,
+                "duration_per_oid": 0.24754400000000001,
+                "max_rss": 12108,
                 "name": "netsnmp",
-                "rss_per_sess": 1243
+                "rss_per_sess": 1210
             },
             {
-                "duration": 2362.74,
-                "duration_per_oid": 0.47254799999999997,
-                "max_rss": 35484,
+                "duration": 1994.1,
+                "duration_per_oid": 0.39882,
+                "max_rss": 35428,
                 "name": "pysnmp",
-                "rss_per_sess": 3548
+                "rss_per_sess": 3542
             }
         ]
     },
@@ -67,25 +67,25 @@
         },
         "results": [
             {
-                "duration": 2810.1,
-                "duration_per_oid": 0.28101,
-                "max_rss": 14048,
+                "duration": 2290.77,
+                "duration_per_oid": 0.229077,
+                "max_rss": 15876,
                 "name": "gosnmp",
-                "rss_per_sess": 1404
+                "rss_per_sess": 1587
             },
             {
-                "duration": 2846.43,
-                "duration_per_oid": 0.284643,
-                "max_rss": 12180,
+                "duration": 2279.19,
+                "duration_per_oid": 0.227919,
+                "max_rss": 12404,
                 "name": "netsnmp",
-                "rss_per_sess": 1218
+                "rss_per_sess": 1240
             },
             {
-                "duration": 4786.98,
-                "duration_per_oid": 0.47869799999999996,
-                "max_rss": 35128,
+                "duration": 3852.59,
+                "duration_per_oid": 0.385259,
+                "max_rss": 35236,
                 "name": "pysnmp",
-                "rss_per_sess": 3512
+                "rss_per_sess": 3523
             }
         ]
     },
@@ -97,25 +97,25 @@
         },
         "results": [
             {
-                "duration": 7077.94,
-                "duration_per_oid": 0.28311759999999997,
-                "max_rss": 14088,
+                "duration": 5728.5,
+                "duration_per_oid": 0.22914,
+                "max_rss": 15940,
                 "name": "gosnmp",
-                "rss_per_sess": 1408
+                "rss_per_sess": 1594
             },
             {
-                "duration": 7202.91,
-                "duration_per_oid": 0.2881164,
-                "max_rss": 12224,
+                "duration": 5711.04,
+                "duration_per_oid": 0.2284416,
+                "max_rss": 12076,
                 "name": "netsnmp",
-                "rss_per_sess": 1222
+                "rss_per_sess": 1207
             },
             {
-                "duration": 11907.22,
-                "duration_per_oid": 0.47628879999999996,
-                "max_rss": 35452,
+                "duration": 9499.88,
+                "duration_per_oid": 0.3799952,
+                "max_rss": 35112,
                 "name": "pysnmp",
-                "rss_per_sess": 3545
+                "rss_per_sess": 3511
             }
         ]
     },
@@ -127,25 +127,25 @@
         },
         "results": [
             {
-                "duration": 14222.63,
-                "duration_per_oid": 0.2844526,
-                "max_rss": 14216,
+                "duration": 11297.28,
+                "duration_per_oid": 0.22594560000000002,
+                "max_rss": 17996,
                 "name": "gosnmp",
-                "rss_per_sess": 1421
+                "rss_per_sess": 1799
             },
             {
-                "duration": 14278.51,
-                "duration_per_oid": 0.2855702,
-                "max_rss": 12408,
+                "duration": 11821.37,
+                "duration_per_oid": 0.2364274,
+                "max_rss": 12176,
                 "name": "netsnmp",
-                "rss_per_sess": 1240
+                "rss_per_sess": 1217
             },
             {
-                "duration": 23820.65,
-                "duration_per_oid": 0.47641300000000003,
-                "max_rss": 35396,
+                "duration": 19512.5,
+                "duration_per_oid": 0.39025,
+                "max_rss": 35416,
                 "name": "pysnmp",
-                "rss_per_sess": 3539
+                "rss_per_sess": 3541
             }
         ]
     },
@@ -157,25 +157,25 @@
         },
         "results": [
             {
-                "duration": 21076.98,
-                "duration_per_oid": 0.2810264,
-                "max_rss": 18224,
+                "duration": 17370.54,
+                "duration_per_oid": 0.2316072,
+                "max_rss": 18028,
                 "name": "gosnmp",
-                "rss_per_sess": 1822
+                "rss_per_sess": 1802
             },
             {
-                "duration": 21400.38,
-                "duration_per_oid": 0.2853384,
-                "max_rss": 12224,
+                "duration": 17741.26,
+                "duration_per_oid": 0.2365501333333333,
+                "max_rss": 12400,
                 "name": "netsnmp",
-                "rss_per_sess": 1222
+                "rss_per_sess": 1240
             },
             {
-                "duration": 35454.06,
-                "duration_per_oid": 0.4727208,
-                "max_rss": 35332,
+                "duration": 29533.83,
+                "duration_per_oid": 0.39378440000000003,
+                "max_rss": 35108,
                 "name": "pysnmp",
-                "rss_per_sess": 3533
+                "rss_per_sess": 3510
             }
         ]
     },
@@ -187,25 +187,25 @@
         },
         "results": [
             {
-                "duration": 28258.75,
-                "duration_per_oid": 0.2825875,
-                "max_rss": 16048,
+                "duration": 22708.31,
+                "duration_per_oid": 0.2270831,
+                "max_rss": 14220,
                 "name": "gosnmp",
-                "rss_per_sess": 1604
+                "rss_per_sess": 1422
             },
             {
-                "duration": 28777.21,
-                "duration_per_oid": 0.2877721,
-                "max_rss": 12224,
+                "duration": 23426.31,
+                "duration_per_oid": 0.2342631,
+                "max_rss": 12040,
                 "name": "netsnmp",
-                "rss_per_sess": 1222
+                "rss_per_sess": 1204
             },
             {
-                "duration": 47432.17,
-                "duration_per_oid": 0.47432169999999996,
-                "max_rss": 35260,
+                "duration": 37988.31,
+                "duration_per_oid": 0.3798831,
+                "max_rss": 35172,
                 "name": "pysnmp",
-                "rss_per_sess": 3526
+                "rss_per_sess": 3517
             }
         ]
     }
