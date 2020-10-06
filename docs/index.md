@@ -15,3 +15,7 @@ RSS: Resident Set Size
 ### OID Duration per Batch Size
 
 ![](generated_data/oid_duration_per_batch_size.png)
+
+### User time per Rounds
+
+![](generated_data/user_time_per_rounds.png)
