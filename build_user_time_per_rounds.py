@@ -10,7 +10,7 @@ def build_user_time_per_rounds():
     import matplotlib.pyplot as plt
 
     session_results = {}
-    for i in [1, 10, 20, 50, 100, 150, 200]:
+    for i in [1, 10, 20, 50, 100]:
         kwargs = {
             'oid_batch_size': 50,
             'rounds': i,
