@@ -1,7 +1,8 @@
 import json
 import subprocess
 import tempfile
-
+from collections import defaultdict
+import matplotlib.pyplot as plt
 
 class SubprocessOutputEmptyError(Exception):
     pass
@@ -40,3 +41,42 @@ def get_results(oid_batch_size=50, sessions=1, rounds=1):
     if code != 0:
         raise Exception("stderr: {}".format(stderr.decode('utf-8').strip()))
     return json.loads(raw_res)
+
+
+def create_graph(results, column, column_desc, per_value):
+    sessions = results.keys()
+    per_lib = defaultdict(list)
+    for _, results in results.items():
+        for result in results['results']:
+            per_lib[result['name']].append(result[column])
+    for lib, values in per_lib.items():
+        plt.plot(sessions, values, label=lib)
+    plt.xlabel(per_value)
+    plt.ylabel(column_desc)
+    plt.legend()
+    file_prefix = 'docs/generated_data/{}_per_{}'.format(column, per_value)
+    fig_path = '{}.png'.format(file_prefix)
+    data_path = '{}.json'.format(file_prefix)
+    print("Save fig to: ", fig_path)
+    print("Save data to: ", data_path)
+    plt.savefig(fig_path, bbox_inches='tight')
+    with open(data_path.format(file_prefix), 'w') as f:
+        f.write(json.dumps(results, indent=4, sort_keys=True))
+
+    plt.clf()
+
+
+def create_all_graphs(session_results, per_value):
+    columns = {
+        'max_rss': {
+            'desc': 'Max RSS (KBytes)',
+        },
+        'user_time': {
+            'desc': 'User time (sec)',
+        },
+        'duration_per_oid': {
+            'desc': 'Duration Per OID (ms)',
+        },
+    }
+    for column, column_details in columns.items():
+        create_graph(session_results, column=column, column_desc=column_details['desc'], per_value=per_value)

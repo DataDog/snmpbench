@@ -46,9 +46,8 @@ jobs:
     - name: Run bench
       run: |
         time python build_max_rss_per_sessions.py
-        time python build_max_rss_per_rounds.py
+        time python build_per_rounds.py
         time python build_oid_duration_per_batch_size.py
-        time python build_user_time_per_rounds.py
 
     - name: Install MKDocs
       run: pip install mkdocs
