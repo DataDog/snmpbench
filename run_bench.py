@@ -44,14 +44,14 @@ for lib, config in configs.items():
     for line in exec_stderr.split('\n'):
         if 'Maximum resident set size' in line:
             max_rss = line.split(':')[1].strip()
-            break
-    else:
-        raise Exception('No duration found')
+        if 'User time (seconds)' in line:
+            user_time = line.split(':')[1].strip()
 
     results.append({
         'name': lib,
         'duration': float(duration),
         'max_rss': int(max_rss),
+        'user_time': float(user_time),
     })
 
 for res in results:
@@ -72,8 +72,9 @@ else:
     print("oid_batch_size: {}".format(args.oid_batch_size))
     print("sessions: {}".format(args.sessions))
     print("rounds: {}".format(args.rounds))
-    print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s}".format("", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess"))
+    print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s} {:>20s}".format(
+        "", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess", "user_time"))
     for res in results:
-        print("{:10s}: {:>15.2f} {:>20.2f} {:>20d} {:>20d}".format(
-            res['name'], res['duration'], res['duration_per_oid'], res['max_rss'], res['rss_per_sess']
+        print("{:10s}: {:>15.2f} {:>20.2f} {:>20d} {:>20d} {:>20.2f} ".format(
+            res['name'], res['duration'], res['duration_per_oid'], res['max_rss'], res['rss_per_sess'], res['user_time']
         ))
