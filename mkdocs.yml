@@ -1,1 +1,9 @@
 site_name: snmpbench
+
+
+nav:
+  - Home: index.md
+  - Benchmark:
+    - Max RSS: bench/max_rss.md
+    - Duration per OID: bench/duration_per_oid.md
+    - User Time: bench/user_time.md
