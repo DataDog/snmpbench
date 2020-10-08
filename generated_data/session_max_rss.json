@@ -6,31 +6,31 @@
     },
     "results": [
         {
-            "duration": 6013.3,
-            "duration_per_oid": 0.300665,
-            "max_rss": 59632,
+            "duration": 5130.36,
+            "duration_per_oid": 0.25651799999999997,
+            "max_rss": 61828,
             "name": "gosnmp",
             "percent_cpu": 0.03,
-            "rss_per_sess": 149,
-            "user_time": 0.16
+            "rss_per_sess": 154,
+            "user_time": 0.13
         },
         {
-            "duration": 5879.95,
-            "duration_per_oid": 0.29399749999999997,
-            "max_rss": 13256,
+            "duration": 5189.59,
+            "duration_per_oid": 0.25947950000000003,
+            "max_rss": 13108,
             "name": "netsnmp",
-            "percent_cpu": 0.05,
-            "rss_per_sess": 33,
-            "user_time": 0.26
+            "percent_cpu": 0.04,
+            "rss_per_sess": 32,
+            "user_time": 0.23
         },
         {
-            "duration": 12594.6,
-            "duration_per_oid": 0.62973,
-            "max_rss": 388408,
+            "duration": 10711.2,
+            "duration_per_oid": 0.53556,
+            "max_rss": 388364,
             "name": "pysnmp",
-            "percent_cpu": 0.82,
-            "rss_per_sess": 971,
-            "user_time": 28.2
+            "percent_cpu": 0.83,
+            "rss_per_sess": 970,
+            "user_time": 24.72
         }
     ]
 }
