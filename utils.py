@@ -31,11 +31,11 @@ def subprocess_output(command, raise_on_empty_output=False, env=None):
     return output, err, proc.returncode
 
 
-def get_results(oid_batch_size=50, sessions=1, rounds=1):
+def get_results(oid_batch_size=50, session=1, round=1):
     run_bench_cmd = ['python', 'run_bench.py', 'localhost', '1161',
                      '--oid-batch-size', str(oid_batch_size),
-                     '--sessions', str(sessions),
-                     '--rounds', str(rounds),
+                     '--sessions', str(session),
+                     '--rounds', str(round),
                      '--json']
     raw_res, stderr, code = subprocess_output(run_bench_cmd)
     if code != 0:
@@ -54,7 +54,7 @@ def create_graph(results, column, column_desc, per_value):
     plt.xlabel(per_value)
     plt.ylabel(column_desc)
     plt.legend()
-    file_prefix = 'docs/generated_data/{}_per_{}'.format(column, per_value)
+    file_prefix = 'docs/generated_data/{}_{}'.format(per_value, column)
     fig_path = '{}.png'.format(file_prefix)
     data_path = '{}.json'.format(file_prefix)
     print("Save fig to: ", fig_path)
