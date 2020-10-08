@@ -77,6 +77,9 @@ def create_all_graphs(session_results, per_value):
         'duration_per_oid': {
             'desc': 'Duration Per OID (ms)',
         },
+        'percent_cpu': {
+            'desc': 'Percent CPU',
+        },
     }
     for column, column_details in columns.items():
         create_graph(session_results, column=column, column_desc=column_details['desc'], per_value=per_value)
