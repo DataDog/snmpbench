@@ -7,4 +7,5 @@ nav:
     - Max RSS: bench/max_rss.md
     - Duration per OID: bench/duration_per_oid.md
     - User Time: bench/user_time.md
-    - Sys Time: bench/sys_time.md
+    - System Time: bench/sys_time.md
+    - Elapsed Time: bench/elapsed_time.md
