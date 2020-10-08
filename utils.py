@@ -43,7 +43,7 @@ def get_results(oid_batch_size=50, session=1, round=1):
     return json.loads(raw_res)
 
 
-def create_graph(results, column, column_desc, per_value):
+def create_graph(results, column, column_desc, per_value, title):
     sessions = results.keys()
     per_lib = defaultdict(list)
     for _, results in results.items():
@@ -54,6 +54,7 @@ def create_graph(results, column, column_desc, per_value):
     plt.xlabel(per_value)
     plt.ylabel(column_desc)
     plt.legend()
+    plt.title(title)
     file_prefix = 'docs/generated_data/{}_{}'.format(per_value, column)
     fig_path = '{}.png'.format(file_prefix)
     data_path = '{}.json'.format(file_prefix)
@@ -66,7 +67,7 @@ def create_graph(results, column, column_desc, per_value):
     plt.clf()
 
 
-def create_all_graphs(session_results, per_value):
+def create_all_graphs(session_results, per_value, title=''):
     columns = {
         'max_rss': {
             'desc': 'Max RSS (KBytes)',
@@ -82,4 +83,4 @@ def create_all_graphs(session_results, per_value):
         },
     }
     for column, column_details in columns.items():
-        create_graph(session_results, column=column, column_desc=column_details['desc'], per_value=per_value)
+        create_graph(session_results, column=column, column_desc=column_details['desc'], per_value=per_value, title=title)
