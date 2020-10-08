@@ -75,6 +75,9 @@ def create_all_graphs(session_results, per_value, title=''):
         'user_time': {
             'desc': 'User time (sec)',
         },
+        'sys_time': {
+            'desc': 'System time (sec)',
+        },
         'duration_per_oid': {
             'desc': 'Duration Per OID (ms)',
         },
