@@ -9,3 +9,6 @@ nav:
     - User Time: bench/user_time.md
     - System Time: bench/sys_time.md
     - Elapsed Time: bench/elapsed_time.md
+    - Minor Page Faults: bench/minor_page_faults.md
+    - Voluntary Switches: bench/voluntary_switch.md
+    - Involuntary Switches: bench/involuntary_switch.md

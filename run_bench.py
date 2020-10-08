@@ -52,6 +52,12 @@ for lib, config in configs.items():
             elapsed_time = line.split(':')[-1].strip()
         if 'Percent of CPU this job got' in line:
             percent_cpu = line.split(':')[1].strip().replace('%', '')
+        if 'Minor (reclaiming a frame) page faults' in line:
+            minor_page_faults = line.split(':')[-1].strip()
+        if 'Voluntary context switches' in line:
+            voluntary_switch = line.split(':')[-1].strip()
+        if 'Involuntary context switches' in line:
+            involuntary_switch = line.split(':')[-1].strip()
 
     results.append({
         'name': lib,
@@ -61,6 +67,9 @@ for lib, config in configs.items():
         'sys_time': float(sys_time),
         'elapsed_time': float(elapsed_time),
         'percent_cpu': float(percent_cpu) / 100.0,
+        'minor_page_faults': int(minor_page_faults),
+        'voluntary_switch': int(voluntary_switch),
+        'involuntary_switch': int(involuntary_switch),
     })
 
 for res in results:
@@ -81,11 +90,13 @@ else:
     print("oid_batch_size: {}".format(args.oid_batch_size))
     print("sessions: {}".format(args.sessions))
     print("rounds: {}".format(args.rounds))
-    print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s}".format(
+    print("{:10s}  {:>15s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s} {:>20s}".format(
         "", "duration(ms)", "duration_per_oid", "max_rss(kbytes)", "rss_per_sess", "user_time", "sys_time",
-        "elapsed_time", "percent_cpu"))
+        "elapsed_time", "percent_cpu", "minor_page_faults", "voluntary_switch", "involuntary_switch"))
     for res in results:
-        print("{:10s}: {:>15.2f} {:>20.2f} {:>20d} {:>20d} {:>20.2f} {:>20.2f} {:>20.2f} {:>20.2f}".format(
+        print("{:10s}: {:>15.2f} {:>20.2f} {:>20d} {:>20d} {:>20.2f} {:>20.2f} {:>20.2f} "
+              "{:>20.2f} {:>20d} {:>20d} {:>20d}".format(
             res['name'], res['duration'], res['duration_per_oid'], res['max_rss'], res['rss_per_sess'],
-            res['user_time'], res['sys_time'], res['elapsed_time'], res['percent_cpu']
+            res['user_time'], res['sys_time'], res['elapsed_time'], res['percent_cpu'], res['minor_page_faults'],
+            res['voluntary_switch'], res['involuntary_switch']
         ))

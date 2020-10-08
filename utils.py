@@ -87,6 +87,15 @@ def create_all_graphs(session_results, per_value, title=''):
         'percent_cpu': {
             'desc': 'Percent CPU',
         },
+        'minor_page_faults': {
+            'desc': 'Minor (reclaiming a frame) page faults',
+        },
+        'voluntary_switch': {
+            'desc': 'Voluntary context switches',
+        },
+        'involuntary_switch': {
+            'desc': 'Involuntary context switches',
+        },
     }
     for column, column_details in columns.items():
         create_graph(session_results, column=column, column_desc=column_details['desc'], per_value=per_value, title=title)
