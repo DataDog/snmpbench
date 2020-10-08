@@ -6,37 +6,46 @@
     },
     "results": [
         {
-            "duration": 6357.5,
-            "duration_per_oid": 0.317875,
-            "elapsed_time": 6.36,
-            "max_rss": 15992,
+            "duration": 6331.62,
+            "duration_per_oid": 0.316581,
+            "elapsed_time": 6.33,
+            "involuntary_switch": 1101,
+            "max_rss": 14080,
+            "minor_page_faults": 679,
             "name": "gosnmp",
             "percent_cpu": 0.02,
-            "rss_per_sess": 15992,
-            "sys_time": 0.05,
-            "user_time": 0.1
+            "rss_per_sess": 14080,
+            "sys_time": 0.02,
+            "user_time": 0.12,
+            "voluntary_switch": 5973
         },
         {
-            "duration": 6556.7,
-            "duration_per_oid": 0.327835,
-            "elapsed_time": 6.58,
-            "max_rss": 12076,
+            "duration": 6453.0,
+            "duration_per_oid": 0.32265,
+            "elapsed_time": 6.48,
+            "involuntary_switch": 9,
+            "max_rss": 12060,
+            "minor_page_faults": 10059,
             "name": "netsnmp",
             "percent_cpu": 0.04,
-            "rss_per_sess": 12076,
-            "sys_time": 0.04,
-            "user_time": 0.24
+            "rss_per_sess": 12060,
+            "sys_time": 0.06,
+            "user_time": 0.22,
+            "voluntary_switch": 400
         },
         {
-            "duration": 10528.18,
-            "duration_per_oid": 0.526409,
-            "elapsed_time": 10.77,
-            "max_rss": 27836,
+            "duration": 10909.13,
+            "duration_per_oid": 0.5454565,
+            "elapsed_time": 11.15,
+            "involuntary_switch": 51,
+            "max_rss": 27672,
+            "minor_page_faults": 9036,
             "name": "pysnmp",
             "percent_cpu": 0.42,
-            "rss_per_sess": 27836,
-            "sys_time": 0.04,
-            "user_time": 4.5
+            "rss_per_sess": 27672,
+            "sys_time": 0.06,
+            "user_time": 4.71,
+            "voluntary_switch": 405
         }
     ]
 }
