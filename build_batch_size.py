@@ -8,8 +8,8 @@ def build_per_batch_size():
     for i in [5, 10, 15, 20, 50, 100]:
         kwargs = {
             'oid_batch_size': i,
-            'rounds': 10,
-            'sessions': 10,
+            'round': 10,
+            'session': 10,
         }
         print("Run for params: {}".format(kwargs))
         results[i] = get_results(**kwargs)
