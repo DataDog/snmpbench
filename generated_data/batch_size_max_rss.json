@@ -1,0 +1,33 @@
+{
+    "config": {
+        "oid_batch_size": 100,
+        "rounds": 10,
+        "sessions": 10
+    },
+    "results": [
+        {
+            "duration": 2785.06,
+            "duration_per_oid": 0.278506,
+            "max_rss": 13988,
+            "name": "gosnmp",
+            "rss_per_sess": 1398,
+            "user_time": 0.05
+        },
+        {
+            "duration": 2960.26,
+            "duration_per_oid": 0.296026,
+            "max_rss": 12232,
+            "name": "netsnmp",
+            "rss_per_sess": 1223,
+            "user_time": 0.13
+        },
+        {
+            "duration": 4938.13,
+            "duration_per_oid": 0.493813,
+            "max_rss": 36416,
+            "name": "pysnmp",
+            "rss_per_sess": 3641,
+            "user_time": 2.73
+        }
+    ]
+}
