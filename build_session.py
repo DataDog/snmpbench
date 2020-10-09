@@ -17,7 +17,7 @@ def build_per_session():
         print("Run for params: {}".format(kwargs))
         results[i] = get_results(**kwargs)
 
-    create_all_graphs(results, per_value='session', title="Options: {}".format(base_options))
+    create_all_graphs(results, per_value='session', desc="params: {}".format(base_options))
 
 
 build_per_session()

@@ -17,7 +17,7 @@ def build_per_batch_size():
         print("Run for params: {}".format(kwargs))
         results[i] = get_results(**kwargs)
 
-    create_all_graphs(results, per_value='batch_size', title="Options: {}".format(base_options))
+    create_all_graphs(results, per_value='batch_size', desc="params: {}".format(base_options))
 
 
 build_per_batch_size()

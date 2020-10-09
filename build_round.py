@@ -17,7 +17,7 @@ def build_per_round():
         print("Run for params: {}".format(kwargs))
         results[i] = get_results(**kwargs)
 
-    create_all_graphs(results, per_value='round', title="Options: {}".format(base_options))
+    create_all_graphs(results, per_value='round', desc="params: {}".format(base_options))
 
 
 build_per_round()
