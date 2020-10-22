@@ -1,6 +1,7 @@
 import sys
-
+import time
 import netsnmp
+
 
 host = sys.argv[1]
 port = int(sys.argv[2])  # default port is 1161 and cannot be be changed
@@ -8,8 +9,6 @@ oid_batch_size = int(sys.argv[3])
 sessions_num = int(sys.argv[4])
 rounds = int(sys.argv[5])
 print_results = sys.argv[6]
-
-import time
 
 
 oids = []
@@ -23,7 +22,6 @@ for _ in range(sessions_num):
                            Community='public'))
 
 vars = netsnmp.VarList(*oids)
-
 session_vals = []
 
 start = time.time()
