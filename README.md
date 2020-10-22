@@ -7,7 +7,7 @@ The benchmark is focused on how the library perform (Speed, Memory, CPU usage, e
 ## Benchmarked libraries
 
 - [pysnmp](https://github.com/etingof/pysnmp)
-- netsnmp using [python3-netsnmp (bindings)](https://github.com/bluecmd/python3-netsnmp)
+- [net-snmp](http://www.net-snmp.org/) using [python3-netsnmp (bindings)](https://github.com/bluecmd/python3-netsnmp)
 - [gosnmp](https://github.com/soniah/gosnmp)
 
 ## Methodology
