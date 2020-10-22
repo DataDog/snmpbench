@@ -33,3 +33,33 @@ Except for `Duration per OID`, other measurements are collected using `/usr/bin/
 ## Results
 
 Results can be viewed here: https://datadoghq.dev/snmpbench/
+
+## How to run locally
+
+Requirements:
+
+```
+apt install -y libsnmp-dev
+pip install -r requirements.txt
+go get github.com/soniah/gosnmp
+```
+
+Run snmpsim:
+
+```
+docker-compose -f environment/  up -d
+```
+
+Run benchmark:
+
+```
+python run_bench.py localhost 1161 --oid-batch-size 10 --sessions 1 --rounds 1
+```
+
+Run scenarios:
+
+```
+python build_batch_size.py
+python build_round.py
+python build_session.py
+```
