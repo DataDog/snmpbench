@@ -4,6 +4,8 @@ Benchmark for snmp libraries.
 
 The benchmark is focused on how the library perform (Speed, Memory, CPU usage, etc) under different settings (batch size, rounds, sessions, etc).
 
+Results can be viewed here: https://datadoghq.dev/snmpbench/
+
 ## Benchmarked libraries
 
 - [pysnmp](https://github.com/etingof/pysnmp)
@@ -29,10 +31,6 @@ Measurements:
 - Elapsed Time (sec): total elapsed wall clock time taken to run the scenario
 
 Except for `Duration per OID`, other measurements are collected using `/usr/bin/time`. 
-
-## Results
-
-Results can be viewed here: https://datadoghq.dev/snmpbench/
 
 ## How to run locally
 
