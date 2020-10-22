@@ -36,7 +36,7 @@ Results can be viewed here: https://datadoghq.dev/snmpbench/
 
 ## How to run locally
 
-Requirements:
+**Requirements:**
 
 ```
 apt install -y libsnmp-dev
@@ -44,22 +44,24 @@ pip install -r requirements.txt
 go get github.com/soniah/gosnmp
 ```
 
-Run snmpsim:
+**Run snmpsim:**
 
 ```
 docker-compose -f environment/  up -d
 ```
 
-Run benchmark:
+**Run benchmark:**
 
 ```
 python run_bench.py localhost 1161 --oid-batch-size 10 --sessions 1 --rounds 1
 ```
 
-Run scenarios:
+**Run scenarios:**
 
 ```
 python build_batch_size.py
 python build_round.py
 python build_session.py
 ```
+
+See results in docs/generated_data
