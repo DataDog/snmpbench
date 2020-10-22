@@ -1,7 +1,4 @@
-// Copyright 2012-2014 The GoSNMP Authors. All rights reserved.  Use of this
-// source code is governed by a BSD-style license that can be found in the
-// LICENSE file.
-
+// Based on
 package main
 
 import (
@@ -18,24 +15,24 @@ func main() {
 	if len(os.Args) != 7 {
 		log.Fatalf("7 args expected, %v received", len(os.Args))
 	}
-	host := os.Args[1] // first command line parameter, ...
-	port, err := strconv.Atoi(os.Args[2]) // first command line parameter, ...
+	host := os.Args[1]
+	port, err := strconv.Atoi(os.Args[2])
 	if err != nil {
 		log.Fatalf("port arg err: %v", err)
 	}
-	oid_batch_size, err := strconv.Atoi(os.Args[3]) // first command line parameter, ...
+	oid_batch_size, err := strconv.Atoi(os.Args[3])
 	if err != nil {
 		log.Fatalf("port arg err: %v", err)
 	}
-	sessions_num, err := strconv.Atoi(os.Args[4]) // first command line parameter, ...
+	sessions_num, err := strconv.Atoi(os.Args[4])
 	if err != nil {
 		log.Fatalf("sessions arg err: %v", err)
 	}
-	rounds, err := strconv.Atoi(os.Args[5]) // first command line parameter, ...
+	rounds, err := strconv.Atoi(os.Args[5])
 	if err != nil {
 		log.Fatalf("rounds arg err: %v", err)
 	}
-	print_results := os.Args[6] // first command line parameter, ...
+	print_results := os.Args[6]
 	if err != nil {
 		log.Fatalf("print_results arg err: %v", err)
 	}
@@ -81,6 +78,7 @@ func main() {
 			}
 		}
 	}
+
 	elapsed := time.Since(start)
 
 	for i, result := range results {
@@ -88,16 +86,10 @@ func main() {
 
 		for j, variable := range result.Variables {
 			fmt.Printf("%d: oid: %s ", j, variable.Name)
-
-			// the Value of each variable returned by Get() implements
-			// interface{}. You could do a type switch...
 			switch variable.Type {
 			case g.OctetString:
 				fmt.Printf("string: %s\n", string(variable.Value.([]byte)))
 			default:
-				// ... or often you're just interested in numeric values.
-				// ToBigInt() will return the Value as a BigInt, for plugging
-				// into your calculations.
 				fmt.Printf("number: %d\n", g.ToBigInt(variable.Value))
 			}
 		}
