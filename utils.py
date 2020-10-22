@@ -43,10 +43,10 @@ def get_results(oid_batch_size=50, session=1, round=1):
     return json.loads(raw_res)
 
 
-def create_graph(results, column, column_desc, per_value, desc):
-    sessions = results.keys()
+def create_graph(session_results, column, column_desc, per_value, desc):
+    sessions = session_results.keys()
     per_lib = defaultdict(list)
-    for _, results in results.items():
+    for _, results in session_results.items():
         for result in results['results']:
             per_lib[result['name']].append(result[column])
     for lib, values in per_lib.items():
@@ -62,7 +62,7 @@ def create_graph(results, column, column_desc, per_value, desc):
     print("Save data to: ", data_path)
     plt.savefig(fig_path, bbox_inches='tight')
     with open(data_path.format(file_prefix), 'w') as f:
-        f.write(json.dumps(results, indent=4, sort_keys=True))
+        f.write(json.dumps(session_results, indent=4, sort_keys=True))
 
     plt.clf()
 
