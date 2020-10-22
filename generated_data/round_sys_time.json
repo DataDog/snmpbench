@@ -1,51 +1,461 @@
 {
-    "config": {
-        "oid_batch_size": 50,
-        "rounds": 400,
-        "sessions": 1
+    "1": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 1,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 14.95,
+                "duration_per_oid": 0.299,
+                "elapsed_time": 0.01,
+                "involuntary_switch": 2,
+                "max_rss": 8608,
+                "minor_page_faults": 222,
+                "name": "gosnmp",
+                "percent_cpu": 0.16,
+                "rss_per_sess": 8608,
+                "sys_time": 0.0,
+                "user_time": 0.0,
+                "voluntary_switch": 31
+            },
+            {
+                "duration": 15.72,
+                "duration_per_oid": 0.3144,
+                "elapsed_time": 0.04,
+                "involuntary_switch": 0,
+                "max_rss": 12020,
+                "minor_page_faults": 1285,
+                "name": "netsnmp",
+                "percent_cpu": 0.66,
+                "rss_per_sess": 12020,
+                "sys_time": 0.0,
+                "user_time": 0.03,
+                "voluntary_switch": 1
+            },
+            {
+                "duration": 27.31,
+                "duration_per_oid": 0.5462,
+                "elapsed_time": 0.25,
+                "involuntary_switch": 2,
+                "max_rss": 27556,
+                "minor_page_faults": 9149,
+                "name": "pysnmp",
+                "percent_cpu": 0.94,
+                "rss_per_sess": 27556,
+                "sys_time": 0.02,
+                "user_time": 0.21,
+                "voluntary_switch": 6
+            }
+        ]
     },
-    "results": [
-        {
-            "duration": 5330.02,
-            "duration_per_oid": 0.26650100000000004,
-            "elapsed_time": 5.33,
-            "involuntary_switch": 950,
-            "max_rss": 16036,
-            "minor_page_faults": 687,
-            "name": "gosnmp",
-            "percent_cpu": 0.02,
-            "rss_per_sess": 16036,
-            "sys_time": 0.05,
-            "user_time": 0.1,
-            "voluntary_switch": 5746
+    "10": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 10,
+            "sessions": 1
         },
-        {
-            "duration": 5325.94,
-            "duration_per_oid": 0.266297,
-            "elapsed_time": 5.35,
-            "involuntary_switch": 7,
-            "max_rss": 12000,
-            "minor_page_faults": 10058,
-            "name": "netsnmp",
-            "percent_cpu": 0.04,
-            "rss_per_sess": 12000,
-            "sys_time": 0.03,
-            "user_time": 0.2,
-            "voluntary_switch": 401
+        "results": [
+            {
+                "duration": 139.95,
+                "duration_per_oid": 0.2799,
+                "elapsed_time": 0.14,
+                "involuntary_switch": 4,
+                "max_rss": 12744,
+                "minor_page_faults": 242,
+                "name": "gosnmp",
+                "percent_cpu": 0.04,
+                "rss_per_sess": 12744,
+                "sys_time": 0.0,
+                "user_time": 0.0,
+                "voluntary_switch": 79
+            },
+            {
+                "duration": 145.07,
+                "duration_per_oid": 0.29014,
+                "elapsed_time": 0.17,
+                "involuntary_switch": 1,
+                "max_rss": 11944,
+                "minor_page_faults": 1474,
+                "name": "netsnmp",
+                "percent_cpu": 0.2,
+                "rss_per_sess": 11944,
+                "sys_time": 0.0,
+                "user_time": 0.02,
+                "voluntary_switch": 11
+            },
+            {
+                "duration": 247.7,
+                "duration_per_oid": 0.49539999999999995,
+                "elapsed_time": 0.47,
+                "involuntary_switch": 6,
+                "max_rss": 27612,
+                "minor_page_faults": 8834,
+                "name": "pysnmp",
+                "percent_cpu": 0.69,
+                "rss_per_sess": 27612,
+                "sys_time": 0.03,
+                "user_time": 0.29,
+                "voluntary_switch": 15
+            }
+        ]
+    },
+    "20": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 20,
+            "sessions": 1
         },
-        {
-            "duration": 9126.73,
-            "duration_per_oid": 0.4563365,
-            "elapsed_time": 9.33,
-            "involuntary_switch": 72,
-            "max_rss": 27640,
-            "minor_page_faults": 8839,
-            "name": "pysnmp",
-            "percent_cpu": 0.42,
-            "rss_per_sess": 27640,
-            "sys_time": 0.03,
-            "user_time": 3.92,
-            "voluntary_switch": 405
-        }
-    ]
+        "results": [
+            {
+                "duration": 274.1,
+                "duration_per_oid": 0.2741,
+                "elapsed_time": 0.27,
+                "involuntary_switch": 9,
+                "max_rss": 10888,
+                "minor_page_faults": 287,
+                "name": "gosnmp",
+                "percent_cpu": 0.03,
+                "rss_per_sess": 10888,
+                "sys_time": 0.0,
+                "user_time": 0.0,
+                "voluntary_switch": 116
+            },
+            {
+                "duration": 282.47,
+                "duration_per_oid": 0.28247000000000005,
+                "elapsed_time": 0.31,
+                "involuntary_switch": 2,
+                "max_rss": 12200,
+                "minor_page_faults": 1705,
+                "name": "netsnmp",
+                "percent_cpu": 0.13,
+                "rss_per_sess": 12200,
+                "sys_time": 0.0,
+                "user_time": 0.03,
+                "voluntary_switch": 20
+            },
+            {
+                "duration": 484.13,
+                "duration_per_oid": 0.48413,
+                "elapsed_time": 0.71,
+                "involuntary_switch": 8,
+                "max_rss": 27640,
+                "minor_page_faults": 9020,
+                "name": "pysnmp",
+                "percent_cpu": 0.6,
+                "rss_per_sess": 27640,
+                "sys_time": 0.01,
+                "user_time": 0.42,
+                "voluntary_switch": 25
+            }
+        ]
+    },
+    "50": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 50,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 689.63,
+                "duration_per_oid": 0.275852,
+                "elapsed_time": 0.69,
+                "involuntary_switch": 100,
+                "max_rss": 15344,
+                "minor_page_faults": 432,
+                "name": "gosnmp",
+                "percent_cpu": 0.03,
+                "rss_per_sess": 15344,
+                "sys_time": 0.01,
+                "user_time": 0.0,
+                "voluntary_switch": 697
+            },
+            {
+                "duration": 720.47,
+                "duration_per_oid": 0.288188,
+                "elapsed_time": 0.75,
+                "involuntary_switch": 1,
+                "max_rss": 12032,
+                "minor_page_faults": 2360,
+                "name": "netsnmp",
+                "percent_cpu": 0.08,
+                "rss_per_sess": 12032,
+                "sys_time": 0.0,
+                "user_time": 0.05,
+                "voluntary_switch": 51
+            },
+            {
+                "duration": 1182.5,
+                "duration_per_oid": 0.473,
+                "elapsed_time": 1.41,
+                "involuntary_switch": 8,
+                "max_rss": 27640,
+                "minor_page_faults": 9017,
+                "name": "pysnmp",
+                "percent_cpu": 0.5,
+                "rss_per_sess": 27640,
+                "sys_time": 0.03,
+                "user_time": 0.68,
+                "voluntary_switch": 55
+            }
+        ]
+    },
+    "100": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 100,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 1371.37,
+                "duration_per_oid": 0.27427399999999996,
+                "elapsed_time": 1.37,
+                "involuntary_switch": 270,
+                "max_rss": 13576,
+                "minor_page_faults": 573,
+                "name": "gosnmp",
+                "percent_cpu": 0.02,
+                "rss_per_sess": 13576,
+                "sys_time": 0.01,
+                "user_time": 0.02,
+                "voluntary_switch": 1397
+            },
+            {
+                "duration": 1430.39,
+                "duration_per_oid": 0.286078,
+                "elapsed_time": 1.46,
+                "involuntary_switch": 1,
+                "max_rss": 11932,
+                "minor_page_faults": 3455,
+                "name": "netsnmp",
+                "percent_cpu": 0.06,
+                "rss_per_sess": 11932,
+                "sys_time": 0.01,
+                "user_time": 0.07,
+                "voluntary_switch": 101
+            },
+            {
+                "duration": 2361.37,
+                "duration_per_oid": 0.47227399999999997,
+                "elapsed_time": 2.58,
+                "involuntary_switch": 8,
+                "max_rss": 27836,
+                "minor_page_faults": 9037,
+                "name": "pysnmp",
+                "percent_cpu": 0.46,
+                "rss_per_sess": 27836,
+                "sys_time": 0.02,
+                "user_time": 1.17,
+                "voluntary_switch": 105
+            }
+        ]
+    },
+    "150": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 150,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 2108.86,
+                "duration_per_oid": 0.28118133333333334,
+                "elapsed_time": 2.11,
+                "involuntary_switch": 380,
+                "max_rss": 15676,
+                "minor_page_faults": 592,
+                "name": "gosnmp",
+                "percent_cpu": 0.02,
+                "rss_per_sess": 15676,
+                "sys_time": 0.02,
+                "user_time": 0.03,
+                "voluntary_switch": 2279
+            },
+            {
+                "duration": 2136.21,
+                "duration_per_oid": 0.284828,
+                "elapsed_time": 2.16,
+                "involuntary_switch": 1,
+                "max_rss": 12016,
+                "minor_page_faults": 4557,
+                "name": "netsnmp",
+                "percent_cpu": 0.05,
+                "rss_per_sess": 12016,
+                "sys_time": 0.01,
+                "user_time": 0.1,
+                "voluntary_switch": 150
+            },
+            {
+                "duration": 3515.57,
+                "duration_per_oid": 0.4687426666666667,
+                "elapsed_time": 3.74,
+                "involuntary_switch": 22,
+                "max_rss": 27628,
+                "minor_page_faults": 9150,
+                "name": "pysnmp",
+                "percent_cpu": 0.45,
+                "rss_per_sess": 27628,
+                "sys_time": 0.02,
+                "user_time": 1.66,
+                "voluntary_switch": 155
+            }
+        ]
+    },
+    "200": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 200,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 2807.73,
+                "duration_per_oid": 0.280773,
+                "elapsed_time": 2.81,
+                "involuntary_switch": 700,
+                "max_rss": 16048,
+                "minor_page_faults": 658,
+                "name": "gosnmp",
+                "percent_cpu": 0.02,
+                "rss_per_sess": 16048,
+                "sys_time": 0.03,
+                "user_time": 0.04,
+                "voluntary_switch": 3352
+            },
+            {
+                "duration": 2865.88,
+                "duration_per_oid": 0.286588,
+                "elapsed_time": 2.89,
+                "involuntary_switch": 9,
+                "max_rss": 12012,
+                "minor_page_faults": 5655,
+                "name": "netsnmp",
+                "percent_cpu": 0.05,
+                "rss_per_sess": 12012,
+                "sys_time": 0.01,
+                "user_time": 0.13,
+                "voluntary_switch": 201
+            },
+            {
+                "duration": 4686.34,
+                "duration_per_oid": 0.468634,
+                "elapsed_time": 4.91,
+                "involuntary_switch": 9,
+                "max_rss": 27628,
+                "minor_page_faults": 8785,
+                "name": "pysnmp",
+                "percent_cpu": 0.44,
+                "rss_per_sess": 27628,
+                "sys_time": 0.03,
+                "user_time": 2.13,
+                "voluntary_switch": 205
+            }
+        ]
+    },
+    "300": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 300,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 4200.17,
+                "duration_per_oid": 0.28001133333333333,
+                "elapsed_time": 4.2,
+                "involuntary_switch": 801,
+                "max_rss": 20172,
+                "minor_page_faults": 669,
+                "name": "gosnmp",
+                "percent_cpu": 0.02,
+                "rss_per_sess": 20172,
+                "sys_time": 0.02,
+                "user_time": 0.09,
+                "voluntary_switch": 4546
+            },
+            {
+                "duration": 4327.26,
+                "duration_per_oid": 0.288484,
+                "elapsed_time": 4.35,
+                "involuntary_switch": 5,
+                "max_rss": 12232,
+                "minor_page_faults": 7861,
+                "name": "netsnmp",
+                "percent_cpu": 0.04,
+                "rss_per_sess": 12232,
+                "sys_time": 0.02,
+                "user_time": 0.18,
+                "voluntary_switch": 301
+            },
+            {
+                "duration": 7056.62,
+                "duration_per_oid": 0.4704413333333333,
+                "elapsed_time": 7.29,
+                "involuntary_switch": 38,
+                "max_rss": 27656,
+                "minor_page_faults": 9155,
+                "name": "pysnmp",
+                "percent_cpu": 0.43,
+                "rss_per_sess": 27656,
+                "sys_time": 0.02,
+                "user_time": 3.13,
+                "voluntary_switch": 305
+            }
+        ]
+    },
+    "400": {
+        "config": {
+            "oid_batch_size": 50,
+            "rounds": 400,
+            "sessions": 1
+        },
+        "results": [
+            {
+                "duration": 5610.59,
+                "duration_per_oid": 0.2805295,
+                "elapsed_time": 5.61,
+                "involuntary_switch": 1178,
+                "max_rss": 16120,
+                "minor_page_faults": 692,
+                "name": "gosnmp",
+                "percent_cpu": 0.02,
+                "rss_per_sess": 16120,
+                "sys_time": 0.02,
+                "user_time": 0.11,
+                "voluntary_switch": 6100
+            },
+            {
+                "duration": 5751.3,
+                "duration_per_oid": 0.287565,
+                "elapsed_time": 5.78,
+                "involuntary_switch": 5,
+                "max_rss": 12016,
+                "minor_page_faults": 10060,
+                "name": "netsnmp",
+                "percent_cpu": 0.04,
+                "rss_per_sess": 12016,
+                "sys_time": 0.04,
+                "user_time": 0.23,
+                "voluntary_switch": 401
+            },
+            {
+                "duration": 9409.84,
+                "duration_per_oid": 0.470492,
+                "elapsed_time": 9.64,
+                "involuntary_switch": 29,
+                "max_rss": 27628,
+                "minor_page_faults": 9149,
+                "name": "pysnmp",
+                "percent_cpu": 0.42,
+                "rss_per_sess": 27628,
+                "sys_time": 0.04,
+                "user_time": 4.09,
+                "voluntary_switch": 405
+            }
+        ]
+    }
 }
