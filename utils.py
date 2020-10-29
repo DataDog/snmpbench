@@ -3,6 +3,8 @@ import os
 import subprocess
 import tempfile
 from collections import defaultdict
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 
 class SubprocessOutputEmptyError(Exception):
@@ -59,13 +61,15 @@ def create_graph(session_results, column, column_desc, per_value, desc):
     plt.ylabel(column_desc)
     plt.legend()
     plt.title("{} per {}\n{}".format(column, per_value, desc))
+
     folder = 'docs/generated_data'
-    os.makedirs(folder)
     file_prefix = '{}/{}_{}_version{}'.format(folder, per_value, column, snmp_version)
     fig_path = '{}.png'.format(file_prefix)
     data_path = '{}.json'.format(file_prefix)
     print("Save fig to: ", fig_path)
     print("Save data to: ", data_path)
+
+    Path(folder).mkdir(parents=True, exist_ok=True)
     plt.savefig(fig_path, bbox_inches='tight')
     with open(data_path.format(file_prefix), 'w') as f:
         f.write(json.dumps(session_results, indent=4, sort_keys=True))
