@@ -115,11 +115,11 @@ func main() {
 			fmt.Printf("%d: oid: %s ", j, variable.Name)
 			switch variable.Type {
 			case g.OctetString:
-				fmt.Printf("string: %s\n", string(variable.Value.([]byte)))
+				fmt.Printf("STRING: %s\n", string(variable.Value.([]byte)))
 			case g.ObjectIdentifier:
-				fmt.Printf("string: %v\n", variable.Value)
+				fmt.Printf("OID: %v\n", variable.Value)
 			default:
-				fmt.Printf("number: %d\n", g.ToBigInt(variable.Value))
+				fmt.Printf("VALUE: %v\n", variable.Value)
 			}
 		}
 	}
