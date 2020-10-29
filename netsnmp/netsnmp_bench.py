@@ -9,7 +9,7 @@ oid_batch_size = int(sys.argv[3])
 sessions_num = int(sys.argv[4])
 rounds = int(sys.argv[5])
 print_results = sys.argv[6]
-
+snmp_version = sys.argv[7]
 
 oids = []
 for i in range(1, oid_batch_size + 1):
@@ -17,9 +17,23 @@ for i in range(1, oid_batch_size + 1):
 
 sessions = []
 for _ in range(sessions_num):
-    sessions.append(netsnmp.Session(Version=2,
-                           DestHost="{}:{}".format(host, port),
-                           Community='public'))
+    if snmp_version == '3':
+        session = netsnmp.Session(Version=3,
+            DestHost="{}:{}".format(host, port),
+            SecLevel='authPriv',
+            SecName='datadogSHADES',
+            AuthProto='SHA',
+            AuthPass='doggiepass',
+            PrivProto='DES',
+            PrivPass='doggiePRIVkey',
+            Context='public',
+        )
+    else:
+        session = netsnmp.Session(Version=2,
+            DestHost="{}:{}".format(host, port),
+            Community='public',
+        )
+    sessions.append(session)
 
 vars = netsnmp.VarList(*oids)
 session_vals = []

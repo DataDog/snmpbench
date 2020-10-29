@@ -48,14 +48,17 @@ sessions = []
 
 if snmp_version == '3':
     context_name = 'public'
-    auth_data = UsmUserData('datadogSHADES', 'doggiepass', 'doggiePRIVkey', hlapi.usmHMACSHAAuthProtocol, hlapi.usmDESPrivProtocol)
-    context_data = ContextData(contextEngineId=None, contextName=context_name)
 else:
     context_name = ''
-    auth_data = CommunityData('public', mpModel=1)
-    context_data = ContextData()
 
 for _ in range(sessions_num):
+    if snmp_version == '3':
+        auth_data = UsmUserData('datadogSHADES', 'doggiepass', 'doggiePRIVkey', hlapi.usmHMACSHAAuthProtocol,
+                                hlapi.usmDESPrivProtocol)
+        context_data = ContextData(contextEngineId=None, contextName=context_name)
+    else:
+        auth_data = CommunityData('public', mpModel=1)
+        context_data = ContextData()
     snmpEngine = engine.SnmpEngine()
     target = register_device_target(
         host,
