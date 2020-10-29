@@ -24,9 +24,25 @@
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href=".">snmpbench</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="snmpv2/" class="nav-link">SNMP V2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="snmpv3/" class="nav-link">SNMP V3</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,6 +50,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="snmpv2/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -56,46 +82,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="1"><a href="#duration-per-oid" class="nav-link">Duration per OID</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#max-rss" class="nav-link">Max RSS</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#elapsed-time" class="nav-link">Elapsed Time</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#minor-page-faults" class="nav-link">Minor Page Faults</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#system-time" class="nav-link">System Time</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#user-time" class="nav-link">User Time</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#voluntary-context-switches" class="nav-link">Voluntary context switches</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#involuntary-context-switches" class="nav-link">Involuntary context switches</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
@@ -104,65 +90,7 @@
 <h1 id="snmpbench">snmpbench</h1>
 <p>Benchmark for snmp libraries.</p>
 <p>The benchmark is focused on how the library perform (Speed, Memory, CPU usage, etc) under different settings (batch size, rounds, sessions, etc).</p>
-<p>Methodology and source code of the benchmark are located at <a href="https://github.com/DataDog/snmpbench">https://github.com/DataDog/snmpbench</a></p>
-<h1 id="duration-per-oid">Duration per OID</h1>
-<h3 id="per-batch-size">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_duration_per_oid.png" /></p>
-<h3 id="per-round">Per Round</h3>
-<p><img alt="" src="generated_data/round_duration_per_oid.png" /></p>
-<h3 id="per-session">Per Session</h3>
-<p><img alt="" src="generated_data/session_duration_per_oid.png" /></p>
-<h1 id="max-rss">Max RSS</h1>
-<h3 id="per-batch-size_1">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_max_rss.png" /></p>
-<h3 id="per-round_1">Per Round</h3>
-<p><img alt="" src="generated_data/round_max_rss.png" /></p>
-<h3 id="per-session_1">Per Session</h3>
-<p><img alt="" src="generated_data/session_max_rss.png" /></p>
-<h1 id="elapsed-time">Elapsed Time</h1>
-<p>Elapsed (wall clock) time</p>
-<h3 id="per-batch-size_2">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_elapsed_time.png" /></p>
-<h3 id="per-round_2">Per Round</h3>
-<p><img alt="" src="generated_data/round_elapsed_time.png" /></p>
-<h3 id="per-session_2">Per Session</h3>
-<p><img alt="" src="generated_data/session_elapsed_time.png" /></p>
-<h1 id="minor-page-faults">Minor Page Faults</h1>
-<p>Minor (reclaiming a frame) page faults</p>
-<h3 id="per-batch-size_3">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_minor_page_faults.png" /></p>
-<h3 id="per-round_3">Per Round</h3>
-<p><img alt="" src="generated_data/round_minor_page_faults.png" /></p>
-<h3 id="per-session_3">Per Session</h3>
-<p><img alt="" src="generated_data/session_minor_page_faults.png" /></p>
-<h1 id="system-time">System Time</h1>
-<h3 id="per-batch-size_4">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_sys_time.png" /></p>
-<h3 id="per-round_4">Per Round</h3>
-<p><img alt="" src="generated_data/round_sys_time.png" /></p>
-<h3 id="per-session_4">Per Session</h3>
-<p><img alt="" src="generated_data/session_sys_time.png" /></p>
-<h1 id="user-time">User Time</h1>
-<h3 id="per-batch-size_5">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_user_time.png" /></p>
-<h3 id="per-round_5">Per Round</h3>
-<p><img alt="" src="generated_data/round_user_time.png" /></p>
-<h3 id="per-session_5">Per Session</h3>
-<p><img alt="" src="generated_data/session_user_time.png" /></p>
-<h1 id="voluntary-context-switches">Voluntary context switches</h1>
-<h3 id="per-batch-size_6">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_voluntary_switch.png" /></p>
-<h3 id="per-round_6">Per Round</h3>
-<p><img alt="" src="generated_data/round_voluntary_switch.png" /></p>
-<h3 id="per-session_6">Per Session</h3>
-<p><img alt="" src="generated_data/session_voluntary_switch.png" /></p>
-<h1 id="involuntary-context-switches">Involuntary context switches</h1>
-<h3 id="per-batch-size_7">Per Batch Size</h3>
-<p><img alt="" src="generated_data/batch_size_involuntary_switch.png" /></p>
-<h3 id="per-round_7">Per Round</h3>
-<p><img alt="" src="generated_data/round_involuntary_switch.png" /></p>
-<h3 id="per-session_7">Per Session</h3>
-<p><img alt="" src="generated_data/session_involuntary_switch.png" /></p></div>
+<p>Methodology and source code of the benchmark are located at <a href="https://github.com/DataDog/snmpbench">https://github.com/DataDog/snmpbench</a></p></div>
             </div>
         </div>
 
@@ -246,5 +174,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-10-22 11:25:13.143815+00:00
+Build Date UTC : 2020-10-29 16:28:40.129947+00:00
 -->
