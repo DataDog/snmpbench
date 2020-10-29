@@ -1,6 +1,7 @@
 import sys
 import time
 
+from pysnmp import hlapi
 from pysnmp.hlapi import *
 from pysnmp.entity import engine
 from pysnmp.entity.rfc3413 import cmdgen
@@ -13,6 +14,7 @@ oid_batch_size = int(sys.argv[3])
 sessions_num = int(sys.argv[4])
 rounds = int(sys.argv[5])
 print_results = sys.argv[6]
+snmp_version = sys.argv[7]
 
 
 def register_device_target(ip, port, timeout, retries, engine, auth_data, context_data):
@@ -43,6 +45,16 @@ for i in range(1, oid_batch_size + 1):
 
 sessions = []
 
+
+if snmp_version == '3':
+    context_name = 'public'
+    auth_data = UsmUserData('datadogSHADES', 'doggiepass', 'doggiePRIVkey', hlapi.usmHMACSHAAuthProtocol, hlapi.usmDESPrivProtocol)
+    context_data = ContextData(contextEngineId=None, contextName=context_name)
+else:
+    context_name = ''
+    auth_data = CommunityData('public', mpModel=1)
+    context_data = ContextData()
+
 for _ in range(sessions_num):
     snmpEngine = engine.SnmpEngine()
     target = register_device_target(
@@ -51,8 +63,8 @@ for _ in range(sessions_num):
         timeout=3,
         retries=3,
         engine=snmpEngine,
-        auth_data=CommunityData('public', mpModel=1),
-        context_data=ContextData(),
+        auth_data=auth_data,
+        context_data=context_data,
     )
     sessions.append((snmpEngine, target))
 
@@ -64,7 +76,7 @@ for snmpEngine, target in sessions:
         cmdgen.GetCommandGenerator().sendVarBinds(
             snmpEngine,
             target,
-            None, '',  # contextEngineId, contextName
+            None, context_name,  # contextEngineId, contextName
             oids,
             callback_fn
         )
