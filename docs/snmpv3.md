@@ -1,5 +1,9 @@
 # SNMP V3
 
+SNMP v3 with:
+- SHA auth protocol
+- AES 128 priv protocol  
+
 # Duration per OID
 
 ### Per Batch Size 
