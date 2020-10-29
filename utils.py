@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import tempfile
 from collections import defaultdict
@@ -58,7 +59,9 @@ def create_graph(session_results, column, column_desc, per_value, desc):
     plt.ylabel(column_desc)
     plt.legend()
     plt.title("{} per {}\n{}".format(column, per_value, desc))
-    file_prefix = 'docs/generated_data/{}_{}_version{}'.format(per_value, column, snmp_version)
+    folder = 'docs/generated_data'
+    os.makedirs(folder)
+    file_prefix = '{}/{}_{}_version{}'.format(folder, per_value, column, snmp_version)
     fig_path = '{}.png'.format(file_prefix)
     data_path = '{}.json'.format(file_prefix)
     print("Save fig to: ", fig_path)
