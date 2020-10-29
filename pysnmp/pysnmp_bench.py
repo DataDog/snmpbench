@@ -53,8 +53,8 @@ else:
 
 for _ in range(sessions_num):
     if snmp_version == '3':
-        auth_data = UsmUserData('datadogSHADES', 'doggiepass', 'doggiePRIVkey', hlapi.usmHMACSHAAuthProtocol,
-                                hlapi.usmDESPrivProtocol)
+        auth_data = UsmUserData('datadogSHAAES', 'doggiepass', 'doggiePRIVkey', hlapi.usmHMACSHAAuthProtocol,
+                                hlapi.usmAesCfb128Protocol)
         context_data = ContextData(contextEngineId=None, contextName=context_name)
     else:
         auth_data = CommunityData('public', mpModel=1)

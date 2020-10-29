@@ -21,10 +21,10 @@ for _ in range(sessions_num):
         session = netsnmp.Session(Version=3,
             DestHost="{}:{}".format(host, port),
             SecLevel='authPriv',
-            SecName='datadogSHADES',
+            SecName='datadogSHAAES',
             AuthProto='SHA',
             AuthPass='doggiepass',
-            PrivProto='DES',
+            PrivProto='AES',
             PrivPass='doggiePRIVkey',
             Context='public',
         )
