@@ -8,11 +8,12 @@ import (
 	"time"
 
 	g "github.com/soniah/gosnmp"
+	_ "crypto/sha1"
 )
 
 func main() {
-	if len(os.Args) != 7 {
-		log.Fatalf("7 args expected, %v received", len(os.Args))
+	if len(os.Args) != 8 {
+		log.Fatalf("8 args expected, %v received", len(os.Args))
 	}
 	host := os.Args[1]
 	port, err := strconv.Atoi(os.Args[2])
@@ -35,19 +36,46 @@ func main() {
 	if err != nil {
 		log.Fatalf("print_results arg err: %v", err)
 	}
+	snmp_version := os.Args[7]
+	if err != nil {
+		log.Fatalf("version arg err: %v", err)
+	}
 
 	var sessions []g.GoSNMP
 
 	for i := 0; i < sessions_num; i++ {
-		session := g.GoSNMP{
-			Target: host,
-			Port:               uint16(port),
-			Community:          "public",
-			Version:            g.Version2c,
-			Timeout:            time.Duration(2) * time.Second,
-			Retries:            3,
-			ExponentialTimeout: true,
-			MaxOids:            100,
+		var session g.GoSNMP
+		if snmp_version == "3" {
+			session = g.GoSNMP{
+				Target: host,
+				Port:               uint16(port),
+				ContextName:        "public",
+				Timeout:            time.Duration(2) * time.Second,
+				Retries:            3,
+				ExponentialTimeout: true,
+				MaxOids:            100,
+				Version:            g.Version3,
+				SecurityModel: 		g.UserSecurityModel,
+				MsgFlags:      		g.AuthPriv,
+				SecurityParameters: &g.UsmSecurityParameters{
+					UserName: "datadogSHAAES",
+					AuthenticationProtocol:   g.SHA,
+					AuthenticationPassphrase: "doggiepass",
+					PrivacyProtocol:          g.AES,
+					PrivacyPassphrase:        "doggiePRIVkey",
+				},
+			}
+		} else {
+			session = g.GoSNMP{
+				Target: host,
+				Port:               uint16(port),
+				Community:          "public",
+				Version:            g.Version2c,
+				Timeout:            time.Duration(2) * time.Second,
+				Retries:            3,
+				ExponentialTimeout: true,
+				MaxOids:            100,
+			}
 		}
 
 		err = session.Connect()

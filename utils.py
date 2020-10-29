@@ -31,11 +31,12 @@ def subprocess_output(command, raise_on_empty_output=False, env=None):
     return output, err, proc.returncode
 
 
-def get_results(oid_batch_size=50, session=1, round=1):
+def get_results(oid_batch_size=50, session=1, round=1, snmp_version='2'):
     run_bench_cmd = ['python', 'run_bench.py', 'localhost', '1161',
                      '--oid-batch-size', str(oid_batch_size),
                      '--sessions', str(session),
                      '--rounds', str(round),
+                     '--snmp-version', str(snmp_version),
                      '--json']
     raw_res, stderr, code = subprocess_output(run_bench_cmd)
     if code != 0:
@@ -51,11 +52,13 @@ def create_graph(session_results, column, column_desc, per_value, desc):
             per_lib[result['name']].append(result[column])
     for lib, values in per_lib.items():
         plt.plot(sessions, values, label=lib)
+
+    snmp_version = list(session_results.values())[0]['config']['snmp_version']
     plt.xlabel(per_value)
     plt.ylabel(column_desc)
     plt.legend()
     plt.title("{} per {}\n{}".format(column, per_value, desc))
-    file_prefix = 'docs/generated_data/{}_{}'.format(per_value, column)
+    file_prefix = 'docs/generated_data/{}_{}_version{}'.format(per_value, column, snmp_version)
     fig_path = '{}.png'.format(file_prefix)
     data_path = '{}.json'.format(file_prefix)
     print("Save fig to: ", fig_path)

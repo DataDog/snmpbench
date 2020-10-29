@@ -3,11 +3,12 @@ from utils import get_results, create_all_graphs
 print("Run Rounds")
 
 
-def build_per_round():
+def build_per_round(snmp_version):
     results = {}
     base_options = {
         'oid_batch_size': 50,
         'session': 1,
+        'snmp_version': snmp_version,
     }
     for i in [1, 10, 20, 50, 100, 150, 200, 300, 400]:
         kwargs = base_options.copy()
@@ -20,4 +21,5 @@ def build_per_round():
     create_all_graphs(results, per_value='round', desc="params: {}".format(base_options))
 
 
-build_per_round()
+for snmp_version in ['2', '3']:
+    build_per_round(snmp_version)

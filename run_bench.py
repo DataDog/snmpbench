@@ -13,12 +13,13 @@ parser.add_argument('--oid-batch-size', dest='oid_batch_size', type=int, default
 parser.add_argument('--sessions', dest='sessions', type=int, default=1)
 parser.add_argument('--rounds', dest='rounds', type=int, default=1)
 parser.add_argument('--json', dest='json', action='store_true')
+parser.add_argument('--snmp-version', dest='snmp_version', type=str, default='2')
 parser.set_defaults(json=False)
 
 args = parser.parse_args()
 
 configs = get_configs(hostname=args.hostname, port=args.port, oid_batch_size=args.oid_batch_size,
-                      sessions=args.sessions, rounds=args.rounds, print_results='false')
+                      sessions=args.sessions, rounds=args.rounds, print_results='false', snmp_version=args.snmp_version)
 results = []
 for lib, config in configs.items():
     setup_cmd = config.get('setup')
@@ -82,6 +83,7 @@ if args.json:
             "oid_batch_size": args.oid_batch_size,
             "sessions": args.sessions,
             "rounds": args.rounds,
+            "snmp_version": args.snmp_version,
         },
         'results': results
     }))

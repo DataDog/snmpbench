@@ -3,3 +3,5 @@ site_name: snmpbench
 
 nav:
   - Home: index.md
+  - SNMP V2: snmpv2.md
+  - SNMP V3: snmpv3.md
